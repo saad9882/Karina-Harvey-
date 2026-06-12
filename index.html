@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Marcellus&family=Marcellus+SC&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@200;300;400;500&family=Alex+Brush&display=swap"
         rel="stylesheet" />
     <style>
         :root {
@@ -435,32 +435,37 @@
         }
 
         .hero-names-block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
             opacity: 0;
             animation: fadeUp 1s 0.75s ease forwards;
             margin-bottom: 12px;
         }
 
         .hero-name {
-            font-family: 'ParkAvenue', 'ParkAvenue';
-            font-size: clamp(52px, 14vw, 100px);
+            font-family: 'Alex Brush', cursive;
+            font-size: clamp(45px, 8vw, 80px);
             font-weight: 400;
             color: #8a3452;
-            letter-spacing: 0.04em;
-            line-height: 1;
-            text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35), 0 0 60px rgba(184, 84, 112, 0.3);
-            display: block;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+            display: inline-block;
         }
 
         .hero-amp {
-            font-family: 'EB Garamond', serif;
-            font-style: italic;
-            font-size: clamp(36px, 10vw, 70px);
-            color: rgba(200, 169, 135, 0.95);
+            font-family: 'Alex Brush', cursive;
+            font-style: normal;
+            font-size: clamp(36px, 7vw, 70px);
+            color: #8a3452;
             opacity: 1;
-            line-height: 1.25;
-            display: block;
-            margin: 2px 0;
-            text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+            line-height: 1.1;
+            display: inline-block;
+            margin: 0 4px;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
         }
 
         .hero-tag {
@@ -1395,25 +1400,25 @@
                 <div class="app-grid">
                     <a href="https://apps.apple.com/us/app/bolt-request-a-ride/id675033630" target="_blank"
                         class="app-btn">
-                        <div class="app-icon-wrap" style="background:#e8f5ec;">‪‪❤︎‬</div>
+                        <div class="app-icon-wrap" style="background:#e8f5ec;">🟢</div>
                         <div class="app-label"><span class="app-name">Bolt</span><span class="app-os">App Store</span>
                         </div>
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=ee.mtakso.client" target="_blank"
                         class="app-btn">
-                        <div class="app-icon-wrap" style="background:#e8f5ec;">‪‪☾☼‬</div>
+                        <div class="app-icon-wrap" style="background:#e8f5ec;">🟢</div>
                         <div class="app-label"><span class="app-name">Bolt</span><span class="app-os">Google Play</span>
                         </div>
                     </a>
                     <a href="https://apps.apple.com/app/yandex-go-taxi-food-delivery/id472650686" target="_blank"
                         class="app-btn">
-                        <div class="app-icon-wrap" style="background:#fff0ee;">‪‪‪‪❤︎‬</div>
+                        <div class="app-icon-wrap" style="background:#fff0ee;">🔴</div>
                         <div class="app-label"><span class="app-name">Yandex Go</span><span class="app-os">App
                                 Store</span></div>
                     </a>
                     <a href="https://play.google.com/store/apps/details?id=ru.yandex.taxi" target="_blank"
                         class="app-btn">
-                        <div class="app-icon-wrap" style="background:#fff0ee;">☾☼</div>
+                        <div class="app-icon-wrap" style="background:#fff0ee;">🔴</div>
                         <div class="app-label"><span class="app-name">Yandex Go</span><span class="app-os">Google
                                 Play</span></div>
                     </a>
@@ -1450,7 +1455,7 @@
                         <span class="en-i">~15 min taxi ride to MiaDora</span>
                         <span class="ru-i">~15 мин на такси до MiaDora</span>
                     </div>
-                    <img src="hotel.png" alt="Nobil Luxury Boutique Hotel" class="hotel-img" />
+                    <img src="Hotel.png" alt="Nobil Luxury Boutique Hotel" class="hotel-img" />
                     <div class="hotel-row">
                         <a href="https://www.guestreservations.com/nobil-luxury-boutique-chisinau/booking?utm_source=google&utm_medium=cpc&utm_campaign=991005091&gad_source=1"
                             target="_blank" class="btn btn-sm btn-fill">
