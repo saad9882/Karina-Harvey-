@@ -351,23 +351,8 @@
     .orn-divider-inner {
       display: flex;
       align-items: center;
-      gap: 8px;
-    }
-
-    .orn-divider-inner span {
-      display: block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--rose-pale);
-      opacity: 0.45;
-    }
-
-    .orn-divider-inner span:nth-child(2) {
-      width: 8px;
-      height: 8px;
-      opacity: 0.65;
-      background: var(--peach);
+      justify-content: center;
+      opacity: 0.75;
     }
 
     /* ── HERO ── */
@@ -1186,19 +1171,22 @@
     </section>
 
     <div class="orn-divider">
-      <div class="orn-divider-inner"><span></span><span></span><span></span></div>
+      <div class="orn-divider-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"
+          style="width:16px;height:16px;display:block;">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </div>
     </div>
 
     <!-- ── SCHEDULE ── -->
     <section id="schedule" class="sec">
       <p class="sec-eyebrow reveal"><span class="en-i">The Day</span><span class="ru-i">Программа дня</span></p>
-      <h2 class="sec-title reveal d1"><span class="en">Evening Programme</span><span class="ru">Программа вечера</span>
-      </h2>
+      <h2 class="sec-title reveal d1"><span class="en">Order of the Day</span><span class="ru">Программа дня</span></h2>
       <div class="sec-rule reveal d2">
         <div class="sec-rule-dot"></div>
       </div>
-      <p class="sec-sub reveal d3"><span class="en">Every moment crafted for you with love</span><span class="ru">Каждый
-          момент создан для вас с любовью</span></p>
 
       <div class="timeline">
         <div class="tl-item" data-delay="0">
@@ -1213,12 +1201,10 @@
           <div class="tl-body">
             <div class="tl-header">
               <div class="tl-time-badge"><span class="en-i">4:00 PM</span><span class="ru-i">16:00</span></div>
-              <div class="tl-title"><span class="en-i">Guest Arrival &amp; Welcome Drinks</span><span class="ru-i">Приём
-                  гостей и приветственные напитки</span></div>
+              <div class="tl-title"><span class="en-i">Guest Arrival</span><span class="ru-i">Приём гостей</span></div>
             </div>
-            <div class="tl-desc"><span class="en-i">Guests are welcomed with a warm reception and refreshing welcome
-                drinks to begin the celebrations.</span><span class="ru-i">Гостей приветствуют тёплым приёмом и
-                освежающими напитками.</span></div>
+            <div class="tl-desc"><span class="en-i">Welcome drinks and time to settle in.</span><span
+                class="ru-i">Приветственные напитки и время, чтобы освоиться.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="100">
@@ -1231,10 +1217,11 @@
           <div class="tl-body">
             <div class="tl-header">
               <div class="tl-time-badge"><span class="en-i">4:30 PM</span><span class="ru-i">16:30</span></div>
-              <div class="tl-title"><span class="en-i">Ceremony</span><span class="ru-i">Церемония</span></div>
+              <div class="tl-title"><span class="en-i">Ceremony (Garden)</span><span class="ru-i">Церемония (в
+                  саду)</span></div>
             </div>
-            <div class="tl-desc"><span class="en-i">The exchange of vows in our beautiful garden, surrounded by loved
-                ones.</span><span class="ru-i">Обмен клятвами в живописном саду в окружении близких.</span></div>
+            <div class="tl-desc"><span class="en-i">Exchange of vows and rings.</span><span class="ru-i">Обмен клятвами
+                и кольцами.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="200">
@@ -1247,10 +1234,10 @@
             <div class="tl-header">
               <div class="tl-time-badge"><span class="en-i">5:00 PM</span><span class="ru-i">17:00</span></div>
               <div class="tl-title"><span class="en-i">Cocktails &amp; Photos</span><span class="ru-i">Коктейли и
-                  фотографии</span></div>
+                  фото</span></div>
             </div>
-            <div class="tl-desc"><span class="en-i">Celebrate with cocktails, canapés and photographs in the
-                garden.</span><span class="ru-i">Праздничные коктейли, канапе и фотосессия в саду.</span></div>
+            <div class="tl-desc"><span class="en-i">Drinks, canapés, and photographs with family and
+                friends.</span><span class="ru-i">Напитки, канапе и фотографии с семьей и друзьями.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="300">
@@ -1264,16 +1251,17 @@
               <div class="tl-time-badge"><span class="en-i">7:00 PM</span><span class="ru-i">19:00</span></div>
               <div class="tl-title"><span class="en-i">Dinner</span><span class="ru-i">Ужин</span></div>
             </div>
-            <div class="tl-desc"><span class="en-i">A lavish Moldovan feast with traditional dishes, fine wines and
-                heartfelt toasts.</span><span class="ru-i">Роскошный молдавский стол с традиционными блюдами и
-                искренними тостами.</span></div>
+            <div class="tl-desc"><span class="en-i">A celebratory meal with speeches and toasts.</span><span
+                class="ru-i">Праздничный ужин с речами и тостами.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="400">
           <div class="tl-dot">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path
-                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
             </svg>
           </div>
           <div class="tl-body">
@@ -1282,17 +1270,18 @@
               <div class="tl-title"><span class="en-i">Traditional Entertainment</span><span class="ru-i">Традиционные
                   гуляния</span></div>
             </div>
-            <div class="tl-desc"><span class="en-i">Live folk music, traditional Moldovan dances and performances to
-                delight and inspire.</span><span class="ru-i">Живая народная музыка, традиционные молдавские танцы и
-                выступления.</span></div>
+            <div class="tl-desc"><span class="en-i">A taste of Moldovan wedding traditions and performances.</span><span
+                class="ru-i">Знакомство с молдавскими свадебными традициями и выступлениями.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="500">
           <div class="tl-dot">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M9 18V5l12-2v13" />
-              <circle cx="6" cy="18" r="3" />
-              <circle cx="18" cy="16" r="3" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path
+                d="M12 3l1.912 5.813a2 2 0 0 0 1.275 1.275L21 12l-5.813 1.912a2 2 0 0 0-1.275 1.275L12 21l-1.912-5.813a2 2 0 0 0-1.275-1.275L3 12l5.813-1.912a2 2 0 0 0 1.275-1.275L12 3z" />
+              <path d="M5 3l1 2.5L8.5 6 6 7 5 9.5 4 7 1.5 6 4 5.5 5 3z" />
+              <path d="M19 17l1 2.5 2.5.5-2.5 1-1 2.5-1-2.5-2.5-1 2.5-1 1-2.5z" />
             </svg>
           </div>
           <div class="tl-body">
@@ -1300,15 +1289,16 @@
               <div class="tl-time-badge"><span class="en-i">9:30 PM</span><span class="ru-i">21:30</span></div>
               <div class="tl-title"><span class="en-i">Party</span><span class="ru-i">Вечеринка</span></div>
             </div>
-            <div class="tl-desc"><span class="en-i">Dance the night away as we celebrate love, family and the joy of
-                this beautiful occasion.</span><span class="ru-i">Танцуйте до рассвета, отмечая любовь и радость этого
-                чудесного события.</span></div>
+            <div class="tl-desc"><span class="en-i">Dancing, music, and celebrations into the night.</span><span
+                class="ru-i">Танцы, музыка и веселье до поздней ночи.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="600">
           <div class="tl-dot">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M4 22L14 12M14 12l2.5 4.5 4-4.5L16 9.5 14 12zM2 13l4.5 2.5M10 21l2.5-4.5M18 4l2 2M14 2h2" />
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
             </svg>
           </div>
           <div class="tl-body">
@@ -1316,8 +1306,8 @@
               <div class="tl-time-badge"><span class="en-i">4:00 AM</span><span class="ru-i">04:00</span></div>
               <div class="tl-title"><span class="en-i">Carriages</span><span class="ru-i">Разъезд гостей</span></div>
             </div>
-            <div class="tl-desc"><span class="en-i">Safe travels home after an unforgettable evening.</span><span
-                class="ru-i">Счастливого пути домой после незабываемого вечера.</span></div>
+            <div class="tl-desc"><span class="en-i">Farewell and departure of guests.</span><span class="ru-i">Прощание
+                и разъезд гостей.</span></div>
           </div>
         </div>
       </div>
@@ -1329,7 +1319,13 @@
     </section>
 
     <div class="orn-divider">
-      <div class="orn-divider-inner"><span></span><span></span><span></span></div>
+      <div class="orn-divider-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"
+          style="width:16px;height:16px;display:block;">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </div>
     </div>
 
     <!-- ── VENUE ── -->
@@ -1359,7 +1355,13 @@
     </section>
 
     <div class="orn-divider">
-      <div class="orn-divider-inner"><span></span><span></span><span></span></div>
+      <div class="orn-divider-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"
+          style="width:16px;height:16px;display:block;">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </div>
     </div>
 
     <!-- ── DRESS CODE ── -->
@@ -1371,19 +1373,23 @@
       </div>
       <div class="luxury-card reveal d3" style="text-align:center;max-width:420px;">
         <img src="black_tie.png" alt="Black Tie" class="dc-img" />
-        <div class="dc-text"><span class="en-i">Black Tie Optional</span><span class="ru-i">Смокинг (желательно)</span>
+        <div class="dc-text"><span class="en-i">Cocktail Attire</span><span class="ru-i">Коктейльный дресс-код</span>
         </div>
         <p class="dc-sub">
-          <span class="en-i">We invite you to dress elegantly for this special evening. Black tie is preferred, however
-            formal evening attire is most welcome.</span>
-          <span class="ru-i">Мы приглашаем вас одеться элегантно. Смокинг приветствуется, вечерний наряд также
-            подойдёт.</span>
+          <span class="en-i">Cocktail attire of any kind and colour.</span>
+          <span class="ru-i">Коктейльные наряды любых фасонов и расцветок.</span>
         </p>
       </div>
     </section>
 
     <div class="orn-divider">
-      <div class="orn-divider-inner"><span></span><span></span><span></span></div>
+      <div class="orn-divider-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"
+          style="width:16px;height:16px;display:block;">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </div>
     </div>
 
     <!-- ── GIFTS ── -->
@@ -1394,18 +1400,24 @@
         <div class="sec-rule-dot"></div>
       </div>
       <div class="luxury-card reveal d3" style="text-align:center;max-width:460px;">
-        <img src="gift.jpg" alt="Gift" class="gift-img" />
+        <img src="gift.png" alt="Gift" class="gift-img" />
         <p class="gift-text">
-          <span class="en-i">Gifts are entirely optional. Should you wish to give a gift, cash gifts are customary,
-            however any gift will be warmly received.</span>
-          <span class="ru-i">Подарки совершенно не обязательны. Если вы хотите сделать подарок — денежные подарки
-            являются традицией, однако любой подарок будет принят с благодарностью.</span>
+          <span class="en-i">Gifts are entirely optional, should you wish to give a gift, cash gifts are customary at
+            Moldovan weddings however, any gift will be warmly received</span>
+          <span class="ru-i">Подарки совершенно не обязательны, но если вы хотите сделать подарок — на молдавских
+            свадьбах принято дарить денежные подарки, однако любой подарок будет принят с теплотой</span>
         </p>
       </div>
     </section>
 
     <div class="orn-divider">
-      <div class="orn-divider-inner"><span></span><span></span><span></span></div>
+      <div class="orn-divider-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"
+          style="width:16px;height:16px;display:block;">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </div>
     </div>
 
     <!-- ── RSVP ── -->
@@ -1416,8 +1428,8 @@
         <div class="sec-rule-dot"></div>
       </div>
       <p class="sec-sub reveal d3" style="margin-bottom:32px;">
-        <span class="en">Please respond by 1st August 2027</span>
-        <span class="ru">Просим ответить до 1 августа 2027</span>
+        <span class="en">Please respond by 31st December 2026</span>
+        <span class="ru">Просим ответить до 31 декабря 2026</span>
       </p>
       <div class="rsvp-google-wrap reveal d4">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUn2vUjQ1z6Fd4uz39LPvFacyNuFCmt6nbkHk2jFQ4Um9zKw/viewform?usp=dialog"
@@ -1425,15 +1437,17 @@
           style="font-size:11px;letter-spacing:0.35em;padding:16px 48px;box-shadow:0 4px 24px rgba(196,96,122,0.22);">
           <span class="en-i">RSVP Now</span><span class="ru-i">Ответить</span>
         </a>
-        <p class="rsvp-note">
-          <span class="en-i">Please include any dietary requirements in the form.</span>
-          <span class="ru-i">Пожалуйста, укажите диетические ограничения в форме.</span>
-        </p>
       </div>
     </section>
 
     <div class="orn-divider">
-      <div class="orn-divider-inner"><span></span><span></span><span></span></div>
+      <div class="orn-divider-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"
+          style="width:16px;height:16px;display:block;">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </div>
     </div>
 
     <!-- ── TRAVEL ── -->
@@ -1491,7 +1505,13 @@
     </section>
 
     <div class="orn-divider">
-      <div class="orn-divider-inner"><span></span><span></span><span></span></div>
+      <div class="orn-divider-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5"
+          style="width:16px;height:16px;display:block;">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </div>
     </div>
 
     <!-- ── HOTELS ── -->
