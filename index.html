@@ -92,6 +92,7 @@ body.splash-active{overflow:hidden;}
 #splash.dismissed{animation:splashOut 0.7s ease forwards;}
 @keyframes splashOut{to{opacity:0;}}
 
+
 /* ════════════════════════════════
    MAIN
 ════════════════════════════════ */
@@ -346,8 +347,10 @@ section{position:relative;z-index:1;}
   width:38px;height:38px;border-radius:10px;
   flex-shrink:0;overflow:hidden;
   display:flex;align-items:center;justify-content:center;
+  background:#ffffff;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.05);
 }
-.app-icon-wrap img{width:38px;height:38px;border-radius:10px;object-fit:cover;}
+.app-icon-wrap img{width:100%;height:100%;object-fit:contain;}
 .app-label{text-align:left;}
 .app-name{font-family:'Marcellus',serif;font-size:14px;color:var(--rose-deep);display:block;}
 .app-os{font-size:9px;color:var(--ink-light);letter-spacing:0.15em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:300;}
@@ -409,8 +412,8 @@ footer{text-align:center;padding:clamp(44px,8vh,80px) 24px clamp(56px,10vh,100px
 
 <!-- ══ SPLASH ══ -->
 <div id="splash">
-  <video id="splashVideo" autoplay muted playsinline preload="auto" poster="poster.jpg">
-    <source src="splash.mp4" type="video/mp4"/>
+  <video id="splashVideo" muted playsinline preload="auto">
+    <source src="splash.mp4#t=0.1" type="video/mp4"/>
   </video>
 </div>
 
@@ -644,14 +647,14 @@ footer{text-align:center;padding:clamp(44px,8vh,80px) 24px clamp(56px,10vh,100px
       <!-- Bolt iOS -->
       <a href="https://apps.apple.com/us/app/bolt-request-a-ride/id675033630" target="_blank" class="app-btn">
         <div class="app-icon-wrap">
-          <img src="bolt.png" alt="Bolt"/>
+          <img src="bolt.jpg" alt="Bolt"/>
         </div>
         <div class="app-label"><span class="app-name">Bolt</span><span class="app-os">App Store</span></div>
       </a>
       <!-- Bolt Android -->
       <a href="https://play.google.com/store/apps/details?id=ee.mtakso.client" target="_blank" class="app-btn">
         <div class="app-icon-wrap">
-          <img src="bolt.png" alt="Bolt"/>
+          <img src="bolt.jpg" alt="Bolt"/>
         </div>
         <div class="app-label"><span class="app-name">Bolt</span><span class="app-os">Google Play</span></div>
       </a>
@@ -693,7 +696,7 @@ footer{text-align:center;padding:clamp(44px,8vh,80px) 24px clamp(56px,10vh,100px
         <span class="en-i">~15 min taxi ride to MiaDora</span>
         <span class="ru-i">~15 мин на такси до MiaDora</span>
       </div>
-      <img src="hotel.jpg" alt="Nobil Luxury Boutique Hotel" class="hotel-img"/>
+      <img src="Hotel.jpg" alt="Nobil Luxury Boutique Hotel" class="hotel-img"/>
       <div class="hotel-row">
         <a href="https://www.guestreservations.com/nobil-luxury-boutique-chisinau/booking?utm_source=google&utm_medium=cpc&utm_campaign=991005091&gad_source=1" target="_blank" class="btn btn-sm btn-fill">
           <span class="en-i">View &amp; Book</span><span class="ru-i">Смотреть и забронировать</span>
@@ -757,6 +760,16 @@ document.body.classList.add('splash-active');
 const splashEl=document.getElementById('splash');
 const splashVid=document.getElementById('splashVideo');
 let dismissed=false, playing=false;
+
+// Force load and attempt to play/pause to render the first frame (envelope)
+splashVid.load();
+splashVid.play().then(() => {
+  if (!playing) {
+    splashVid.pause();
+    splashVid.currentTime = 0;
+  }
+}).catch(() => {});
+
 function dismissSplash(){
   if(dismissed)return; dismissed=true;
   splashVid.pause();
@@ -769,7 +782,11 @@ function dismissSplash(){
   startMusic();
 }
 function startVid(){
-  if(playing)return; playing=true;
+  if(playing) {
+    dismissSplash();
+    return;
+  }
+  playing=true;
   splashVid.currentTime=0;
   splashVid.play().catch(()=>dismissSplash());
 }
@@ -777,7 +794,6 @@ splashVid.addEventListener('ended', dismissSplash);
 splashVid.addEventListener('error', ()=>setTimeout(dismissSplash,400));
 splashEl.addEventListener('click', startVid);
 splashEl.addEventListener('touchend', e=>{e.preventDefault(); startVid();},{passive:false});
-setTimeout(()=>{if(!playing) dismissSplash();}, 9000);
 
 // ── MUSIC ──
 const music=document.getElementById('bgMusic');
