@@ -695,6 +695,16 @@
       margin: 18px 0;
     }
 
+    .venue-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 22px;
+      display: block;
+      box-shadow: 0 4px 18px var(--shadow);
+      border: 1px solid var(--card-border);
+    }
+
     .venue-name {
       font-family: 'Maryellen', cursive;
       font-size: clamp(20px, 5vw, 28px);
@@ -865,20 +875,19 @@
     .app-icon-wrap {
       width: 38px;
       height: 38px;
-      border-radius: 10px;
+      border-radius: 50%;
       flex-shrink: 0;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #ffffff;
-      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+      background: transparent;
     }
 
     .app-icon-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
 
     .app-label {
@@ -1127,44 +1136,26 @@
         </video>
       </div>
       <div class="hero-content">
-        <p class="hero-eyebrow">
-          <span class="en-i">Together with their families</span>
-          <span class="ru-i">Вместе с их семьями</span>
-        </p>
-        <div class="hero-divider"><span></span><i>✦ ❧ ✦</i><span></span></div>
         <p class="hero-invited">
-          <span class="en-i">You are cordially invited to celebrate the wedding of</span>
-          <span class="ru-i">Вы приглашены на свадьбу</span>
+          <span class="en-i">You are invited to celebrate the wedding of</span>
+          <span class="ru-i">Вы приглашены отпраздновать свадьбу</span>
         </p>
         <div class="hero-names-block">
           <span class="hero-name">Karina Egorova</span>
           <span class="hero-amp">&amp;</span>
           <span class="hero-name">Harvey Veitch</span>
         </div>
-        <p class="hero-tag">
-          <span class="en-i">who invite you to witness their union</span>
-          <span class="ru-i">которые приглашают вас разделить их счастье</span>
-        </p>
         <div class="hero-details-card">
-          <div class="hero-detail-row">
-            <div class="hero-detail-cell">
-              <div class="hd-label"><span class="en-i">Date</span><span class="ru-i">Дата</span></div>
-              <div class="hd-value">
-                <span class="en-i">Saturday<br />25 September 2027</span>
-                <span class="ru-i">Суббота<br />25 сентября 2027</span>
-              </div>
-            </div>
-            <div class="hero-detail-cell">
-              <div class="hd-label"><span class="en-i">Venue</span><span class="ru-i">Место</span></div>
-              <div class="hd-value">
-                <span class="en-i">MiaDora<br />Chișinău, Moldova</span>
-                <span class="ru-i">MiaDora<br />Кишинёв, Молдова</span>
-              </div>
-            </div>
+          <div style="border-top: 1px solid rgba(255, 200, 160, 0.3); padding-top: 24px; margin-bottom: 24px;">
+            <p
+              style="font-family: 'Longa Iberica', serif; font-style: italic; font-size: clamp(18px, 4vw, 24px); color: rgba(255, 245, 235, 0.96); margin: 0; text-shadow: 0 1px 6px rgba(0,0,0,0.3); letter-spacing: 0.05em;">
+              <span class="en-i">Saturday, 25th September 2027</span>
+              <span class="ru-i">Суббота, 25 сентября 2027</span>
+            </p>
           </div>
           <div class="hero-card-tag">
-            <span class="en-i">✦ A Traditional Moldovan Wedding ✦</span>
-            <span class="ru-i">✦ Традиционная молдавская свадьба ✦</span>
+            <span class="en-i">✦ A traditional Moldovan wedding in Chişinău the Capital of Moldova ✦</span>
+            <span class="ru-i">✦ Традиционная молдавская свадьба в Кишинёве, столице Молдовы ✦</span>
           </div>
         </div>
       </div>
@@ -1351,6 +1342,9 @@
             <span class="en-i">Add to Calendar</span><span class="ru-i">В календарь</span>
           </a>
         </div>
+      </div>
+      <div class="reveal d4" style="margin-top: 36px; max-width: 540px; margin-left: auto; margin-right: auto; padding: 0 16px; box-sizing: border-box;">
+        <img src="sda.png" alt="MiaDora Venue" style="width: 100%; display: block; border-radius: 16px; filter: drop-shadow(0 10px 25px rgba(48,34,45,0.1));" />
       </div>
     </section>
 
@@ -1551,10 +1545,6 @@
 
     <!-- ── FOOTER ── -->
     <footer>
-      <div class="footer-blessing reveal">
-        <span class="en">"May your love story be the most beautiful one ever told."</span>
-        <span class="ru">«Пусть ваша история любви будет самой прекрасной из всех, что были рассказаны.»</span>
-      </div>
       <div class="footer-rule"><i></i></div>
       <div class="footer-names reveal d1">
         <span class="en">
@@ -1576,14 +1566,7 @@
             сентября 2027</span>
         </span>
       </div>
-      <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(230, 103, 83, 0.12);text-align:center;">
-        <a href="https://www.instagram.com/weddingbyawff" target="_blank" style="font-family:'Jost',sans-serif;font-weight:300;font-size:11px;letter-spacing:0.25em;
-              color:var(--ink-light);text-decoration:none;transition:color 0.3s,opacity 0.3s;opacity:0.6;"
-          onmouseover="this.style.color='var(--rose)';this.style.opacity='1';"
-          onmouseout="this.style.color='var(--ink-light)';this.style.opacity='0.6';">
-          Made with love by @weddingbyawff
-        </a>
-      </div>
+
     </footer>
 
   </div><!-- /main -->
