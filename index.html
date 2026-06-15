@@ -205,6 +205,23 @@
       pointer-events: none;
     }
 
+    .splash-text {
+      position: absolute;
+      bottom: clamp(60px, 12vh, 120px);
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 10;
+      color: rgba(255, 255, 255, 0.95);
+      font-family: 'Maryellen', cursive;
+      font-size: clamp(24px, 5vw, 36px);
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+      width: 90%;
+      max-width: 400px;
+    }
+
     #splash.dismissed {
       animation: splashOut 0.7s ease forwards;
     }
@@ -1103,6 +1120,10 @@
     <video id="splashVideo" muted playsinline preload="auto">
       <source src="splash.mp4#t=0.1" type="video/mp4" />
     </video>
+    <div class="splash-text">
+      <span class="en-i">You are invited</span>
+      <span class="ru-i">Вы приглашены</span>
+    </div>
   </div>
 
   <!-- AUDIO -->
@@ -1117,7 +1138,7 @@
     <section id="hero">
       <div class="hero-video-bg">
         <video autoplay muted loop playsinline>
-          <source src="venue-video.mp4" type="video/mp4" />
+          <source src="bloom .mp4" type="video/mp4" />
         </video>
       </div>
       <div class="hero-content">
