@@ -554,23 +554,24 @@
       position: relative;
       max-width: 520px;
       margin: 0 auto;
-      padding: 10px 0 10px clamp(16px, 4vw, 22px);
+      padding: 20px 0 20px 8px;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      left: clamp(28px, 6vw, 36px);
+      left: 30px;
       top: 0;
       bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, var(--peach-light) 8%, var(--peach-light) 92%, transparent);
+      width: 1.5px;
+      background: var(--rose-pale);
+      opacity: 0.5;
     }
 
     .tl-item {
       display: flex;
-      gap: clamp(16px, 4vw, 26px);
-      margin-bottom: clamp(28px, 5vh, 40px);
+      gap: 20px;
+      margin-bottom: 32px;
       align-items: flex-start;
       opacity: 0;
       transform: translateX(-28px);
@@ -584,44 +585,69 @@
 
     .tl-dot {
       flex-shrink: 0;
-      width: clamp(14px, 3.5vw, 18px);
-      height: clamp(14px, 3.5vw, 18px);
-      background: white;
-      border: 2px solid var(--peach);
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--rose-pale);
       border-radius: 50%;
-      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream);
+      color: var(--rose-deep);
       position: relative;
       z-index: 1;
-      box-shadow: 0 0 0 4px rgba(232, 149, 106, 0.12);
-      transition: background 0.3s, box-shadow 0.3s, border-color 0.3s;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+    }
+
+    .tl-dot svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
     }
 
     .tl-item.tl-visible .tl-dot {
-      background: var(--peach);
-      border-color: var(--orange);
-      box-shadow: 0 0 0 6px rgba(232, 149, 106, 0.14), 0 2px 12px rgba(230, 103, 83, 0.22);
+      background: var(--blush);
+      border-color: var(--rose);
+      color: var(--rose-deep);
+      box-shadow: 0 0 0 6px rgba(230, 103, 83, 0.1), 0 2px 12px rgba(230, 103, 83, 0.15);
     }
 
     .tl-body {
       flex: 1;
       text-align: left;
+      padding-top: 6px;
     }
 
-    .tl-time {
+    .tl-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tl-time-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      background: var(--blush);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
       font-family: 'Jost', sans-serif;
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.45em;
+      font-weight: 500;
+      font-size: 11px;
+      color: var(--ink-mid);
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 5px;
+      line-height: 1.2;
     }
 
     .tl-title {
       font-family: 'Maryellen', cursive;
-      font-size: clamp(17px, 4vw, 22px);
+      font-size: clamp(18px, 4vw, 23px);
       color: var(--rose-deep);
-      margin-bottom: 5px;
+      margin-bottom: 0;
       letter-spacing: 0.03em;
     }
 
@@ -1155,71 +1181,120 @@
 
       <div class="timeline">
         <div class="tl-item" data-delay="0">
-          <div class="tl-dot"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
           <div class="tl-body">
-            <div class="tl-time"><span class="en-i">4:00 PM</span><span class="ru-i">16:00</span></div>
-            <div class="tl-title"><span class="en-i">Guest Arrival &amp; Welcome Drinks</span><span class="ru-i">Приём
-                гостей и приветственные напитки</span></div>
+            <div class="tl-header">
+              <div class="tl-time-badge"><span class="en-i">4:00 PM</span><span class="ru-i">16:00</span></div>
+              <div class="tl-title"><span class="en-i">Guest Arrival &amp; Welcome Drinks</span><span class="ru-i">Приём
+                  гостей и приветственные напитки</span></div>
+            </div>
             <div class="tl-desc"><span class="en-i">Guests are welcomed with a warm reception and refreshing welcome
                 drinks to begin the celebrations.</span><span class="ru-i">Гостей приветствуют тёплым приёмом и
                 освежающими напитками.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="100">
-          <div class="tl-dot"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </div>
           <div class="tl-body">
-            <div class="tl-time"><span class="en-i">4:30 PM</span><span class="ru-i">16:30</span></div>
-            <div class="tl-title"><span class="en-i">Ceremony</span><span class="ru-i">Церемония</span></div>
+            <div class="tl-header">
+              <div class="tl-time-badge"><span class="en-i">4:30 PM</span><span class="ru-i">16:30</span></div>
+              <div class="tl-title"><span class="en-i">Ceremony</span><span class="ru-i">Церемония</span></div>
+            </div>
             <div class="tl-desc"><span class="en-i">The exchange of vows in our beautiful garden, surrounded by loved
                 ones.</span><span class="ru-i">Обмен клятвами в живописном саду в окружении близких.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="200">
-          <div class="tl-dot"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 22V12m0 0l-7-7h14l-7 7zM7 2h10" />
+            </svg>
+          </div>
           <div class="tl-body">
-            <div class="tl-time"><span class="en-i">5:00 PM</span><span class="ru-i">17:00</span></div>
-            <div class="tl-title"><span class="en-i">Cocktails &amp; Photos</span><span class="ru-i">Коктейли и
-                фотографии</span></div>
+            <div class="tl-header">
+              <div class="tl-time-badge"><span class="en-i">5:00 PM</span><span class="ru-i">17:00</span></div>
+              <div class="tl-title"><span class="en-i">Cocktails &amp; Photos</span><span class="ru-i">Коктейли и
+                  фотографии</span></div>
+            </div>
             <div class="tl-desc"><span class="en-i">Celebrate with cocktails, canapés and photographs in the
                 garden.</span><span class="ru-i">Праздничные коктейли, канапе и фотосессия в саду.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="300">
-          <div class="tl-dot"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M17 8V2M21 8V2M13 8V2M17 8a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V2M11 12v10M17 12v10" />
+            </svg>
+          </div>
           <div class="tl-body">
-            <div class="tl-time"><span class="en-i">7:00 PM</span><span class="ru-i">19:00</span></div>
-            <div class="tl-title"><span class="en-i">Dinner</span><span class="ru-i">Ужин</span></div>
+            <div class="tl-header">
+              <div class="tl-time-badge"><span class="en-i">7:00 PM</span><span class="ru-i">19:00</span></div>
+              <div class="tl-title"><span class="en-i">Dinner</span><span class="ru-i">Ужин</span></div>
+            </div>
             <div class="tl-desc"><span class="en-i">A lavish Moldovan feast with traditional dishes, fine wines and
                 heartfelt toasts.</span><span class="ru-i">Роскошный молдавский стол с традиционными блюдами и
                 искренними тостами.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="400">
-          <div class="tl-dot"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707-.707M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z" />
+            </svg>
+          </div>
           <div class="tl-body">
-            <div class="tl-time"><span class="en-i">9:00 PM</span><span class="ru-i">21:00</span></div>
-            <div class="tl-title"><span class="en-i">Traditional Entertainment</span><span class="ru-i">Традиционные
-                гуляния</span></div>
+            <div class="tl-header">
+              <div class="tl-time-badge"><span class="en-i">9:00 PM</span><span class="ru-i">21:00</span></div>
+              <div class="tl-title"><span class="en-i">Traditional Entertainment</span><span class="ru-i">Традиционные
+                  гуляния</span></div>
+            </div>
             <div class="tl-desc"><span class="en-i">Live folk music, traditional Moldovan dances and performances to
                 delight and inspire.</span><span class="ru-i">Живая народная музыка, традиционные молдавские танцы и
                 выступления.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="500">
-          <div class="tl-dot"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
           <div class="tl-body">
-            <div class="tl-time"><span class="en-i">9:30 PM</span><span class="ru-i">21:30</span></div>
-            <div class="tl-title"><span class="en-i">Party</span><span class="ru-i">Вечеринка</span></div>
+            <div class="tl-header">
+              <div class="tl-time-badge"><span class="en-i">9:30 PM</span><span class="ru-i">21:30</span></div>
+              <div class="tl-title"><span class="en-i">Party</span><span class="ru-i">Вечеринка</span></div>
+            </div>
             <div class="tl-desc"><span class="en-i">Dance the night away as we celebrate love, family and the joy of
                 this beautiful occasion.</span><span class="ru-i">Танцуйте до рассвета, отмечая любовь и радость этого
                 чудесного события.</span></div>
           </div>
         </div>
         <div class="tl-item" data-delay="600">
-          <div class="tl-dot"></div>
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M4 22L14 12M14 12l2.5 4.5 4-4.5L16 9.5 14 12zM2 13l4.5 2.5M10 21l2.5-4.5M18 4l2 2M14 2h2" />
+            </svg>
+          </div>
           <div class="tl-body">
-            <div class="tl-time"><span class="en-i">4:00 AM</span><span class="ru-i">04:00</span></div>
-            <div class="tl-title"><span class="en-i">Carriages</span><span class="ru-i">Разъезд гостей</span></div>
+            <div class="tl-header">
+              <div class="tl-time-badge"><span class="en-i">4:00 AM</span><span class="ru-i">04:00</span></div>
+              <div class="tl-title"><span class="en-i">Carriages</span><span class="ru-i">Разъезд гостей</span></div>
+            </div>
             <div class="tl-desc"><span class="en-i">Safe travels home after an unforgettable evening.</span><span
                 class="ru-i">Счастливого пути домой после незабываемого вечера.</span></div>
           </div>
@@ -1228,7 +1303,7 @@
 
       <div class="reveal" style="margin-top:36px;max-width:560px;margin-left:auto;margin-right:auto;">
         <img src="party.png" alt="Party"
-          style="width:100%;border-radius:14px;box-shadow:0 8px 40px rgba(180,80,80,0.13);display:block;" />
+          style="width:100%;display:block;filter:drop-shadow(0 10px 25px rgba(48,34,45,0.1));" />
       </div>
     </section>
 
@@ -1255,7 +1330,7 @@
             class="btn btn-sm">
             <span class="en-i">Get Directions</span><span class="ru-i">Маршрут</span>
           </a>
-          <a href="https://calendar.app.google/sXRbT6oWBiXY12xi9" target="_blank" class="btn btn-sm btn-gold">
+          <a href="https://calendar.app.google/offdnMyX9QCQJQjm6" target="_blank" class="btn btn-sm btn-gold">
             <span class="en-i">Add to Calendar</span><span class="ru-i">В календарь</span>
           </a>
         </div>
@@ -1365,14 +1440,14 @@
           <!-- Bolt iOS -->
           <a href="https://apps.apple.com/us/app/bolt-request-a-ride/id675033630" target="_blank" class="app-btn">
             <div class="app-icon-wrap">
-              <img src="bolt.jpg" alt="Bolt" />
+              <img src="bolt.png" alt="Bolt" />
             </div>
             <div class="app-label"><span class="app-name">Bolt</span><span class="app-os">App Store</span></div>
           </a>
           <!-- Bolt Android -->
           <a href="https://play.google.com/store/apps/details?id=ee.mtakso.client" target="_blank" class="app-btn">
             <div class="app-icon-wrap">
-              <img src="bolt.jpg" alt="Bolt" />
+              <img src="bolt.png" alt="Bolt" />
             </div>
             <div class="app-label"><span class="app-name">Bolt</span><span class="app-os">Google Play</span></div>
           </a>
