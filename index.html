@@ -1740,8 +1740,8 @@
 
   <script>
     // ── RSVP CONFIGURATION ──
-    // Replace '[INSERT EMAIL ADDRESS]' below with your actual email address
-    const RSVP_EMAIL = "ranasaad988@gmail.com";
+    const RSVP_EMAIL = "harveyandkarina@gmail.com";
+    const RSVP_CC = "ranasaad988@gmail.com";
 
     // Inject RSVP contact email into the DOM dynamically
     document.addEventListener("DOMContentLoaded", () => {
@@ -1864,6 +1864,7 @@
         },
         body: JSON.stringify({
           _subject: subject,
+          _cc: RSVP_CC,
           "Full Name / Полное имя": name,
           "Email Address / Почта": email,
           "Message / Сообщение": message
