@@ -205,6 +205,12 @@
       pointer-events: none;
     }
 
+    @media (max-width: 450px) {
+      #splash video {
+        object-position: 53.5% bottom;
+      }
+    }
+
     .splash-text {
       position: absolute;
       bottom: clamp(60px, 12vh, 120px);
@@ -448,10 +454,10 @@
 
     .hero-names-block {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+      gap: 6px;
       opacity: 0;
       animation: fadeUp 1s 0.75s ease forwards;
       margin-bottom: 14px;
@@ -699,7 +705,8 @@
       width: 100%;
       height: auto;
       border-radius: 10px;
-      margin-top: 22px;
+      margin-top: 8px;
+      margin-bottom: 8px;
       display: block;
       box-shadow: 0 4px 18px var(--shadow);
       border: 1px solid var(--card-border);
@@ -827,16 +834,49 @@
       margin-bottom: 30px;
     }
 
-    .rsvp-google-wrap {
-      text-align: center;
+    .form-group {
+      margin-bottom: 20px;
     }
 
-    .rsvp-note {
+    .form-label {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--rose-deep);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .form-helper {
       font-family: 'Longa Iberica', serif;
       font-style: italic;
-      font-size: 14px;
+      font-size: 12.5px;
       color: var(--ink-light);
-      margin-top: 14px;
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--peach-light);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13.5px;
+      color: var(--ink-deep);
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 3px rgba(196, 96, 122, 0.12);
     }
 
     /* ── TRAVEL ── */
@@ -1204,8 +1244,7 @@
           <div class="tl-body">
             <div class="tl-header">
               <div class="tl-time-badge"><span class="en-i">4:30 PM</span><span class="ru-i">16:30</span></div>
-              <div class="tl-title"><span class="en-i">Ceremony (Garden)</span><span class="ru-i">Церемония (в
-                  саду)</span></div>
+              <div class="tl-title"><span class="en-i">Ceremony</span><span class="ru-i">Церемония</span></div>
             </div>
             <div class="tl-desc"><span class="en-i">Exchange of vows and rings.</span><span class="ru-i">Обмен клятвами
                 и кольцами.</span></div>
@@ -1324,25 +1363,21 @@
       </div>
       <div class="luxury-card reveal d3">
         <div class="venue-name">MiaDora Banquet Hall</div>
-        <div class="venue-addr">Chișinău, Moldova</div>
+        <div class="venue-addr">Hristo Botev St 25A, MD-2043, Chișinău, Moldova</div>
         <iframe class="map-embed"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2720!2d28.8638!3d47.0245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3628b769a1%3A0x72f5e8f8e6f9e1b2!2sMiaDora!5e0!3m2!1sen!2smd!4v1680000000000"
+          src="https://maps.google.com/maps?q=Hristo%20Botev%20St%2025A,%20Chi%C8%99in%C4%83u,%20Moldova&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
+        <img src="sda.png" alt="MiaDora Venue" class="venue-img" />
         <div class="btn-row">
-          <a href="https://www.google.com/maps/search/MiaDora+Banquet+Hall+Chisinau+Moldova" target="_blank"
+          <a href="https://www.google.com/maps/search/Hristo+Botev+St+25A,+Chisinau,+Moldova" target="_blank"
             class="btn btn-sm">
             <span class="en-i">Get Directions</span><span class="ru-i">Маршрут</span>
           </a>
-          <a href="https://calendar.app.google/offdnMyX9QCQJQjm6" target="_blank" class="btn btn-sm btn-gold">
+          <a href="https://calendar.app.google/TUe32d6K7xnZsVK79" target="_blank" class="btn btn-sm btn-gold">
             <span class="en-i">Add to Calendar</span><span class="ru-i">В календарь</span>
           </a>
         </div>
-      </div>
-      <div class="reveal d4"
-        style="margin-top: 36px; max-width: 540px; margin-left: auto; margin-right: auto; padding: 0 16px; box-sizing: border-box;">
-        <img src="sda.png" alt="MiaDora Venue"
-          style="width: 100%; display: block; border-radius: 16px; filter: drop-shadow(0 10px 25px rgba(48,34,45,0.1));" />
       </div>
     </section>
 
@@ -1423,12 +1458,76 @@
         <span class="en">Please respond by 31st December 2026</span>
         <span class="ru">Просим ответить до 31 декабря 2026</span>
       </p>
-      <div class="rsvp-google-wrap reveal d4">
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeUn2vUjQ1z6Fd4uz39LPvFacyNuFCmt6nbkHk2jFQ4Um9zKw/viewform?usp=dialog"
-          target="_blank" class="btn btn-fill"
-          style="font-size:11px;letter-spacing:0.35em;padding:16px 48px;box-shadow:0 4px 24px rgba(196,96,122,0.22);">
-          <span class="en-i">RSVP Now</span><span class="ru-i">Ответить</span>
-        </a>
+      <div class="luxury-card reveal d4"
+        style="max-width: 500px; margin: 0 auto; text-align: left; position: relative;">
+        <!-- RSVP Form -->
+        <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="rsvpName">
+              <span class="en-i">Full Name</span><span class="ru-i">Полное имя</span>
+            </label>
+            <input type="text" id="rsvpName" name="name" class="form-input" required
+              placeholder="e.g. John Doe / например, Иван Иванов" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvpEmail">
+              <span class="en-i">Email Address</span><span class="ru-i">Электронная почта</span>
+            </label>
+            <input type="email" id="rsvpEmail" name="email" class="form-input" required
+              placeholder="e.g. john@example.com / например, ivan@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rsvpMessage">
+              <span class="en-i">Message</span><span class="ru-i">Сообщение</span>
+            </label>
+            <div class="form-helper">
+              <span class="en-i">Please let us know who will be attending, including the full names of all guests in
+                your party, and kindly inform us of any dietary requirements or allergies.</span>
+              <span class="ru-i">Пожалуйста, сообщите нам, кто будет присутствовать, включая полные имена всех гостей в
+                вашей группе, а также сообщите о любых диетических требованиях или аллергии.</span>
+            </div>
+            <textarea id="rsvpMessage" name="message" class="form-textarea" required rows="4"
+              placeholder="Your message... / Ваше сообщение..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-fill"
+            style="width: 100%; margin-top: 10px; font-size: 11px; letter-spacing: 0.35em;">
+            <span class="en-i">Send RSVP</span><span class="ru-i">Отправить ответ</span>
+          </button>
+        </form>
+
+        <!-- Success Message Container (hidden by default) -->
+        <div id="rsvpSuccess" style="display: none; text-align: center; padding: 20px 10px;">
+          <div
+            style="width: 50px; height: 50px; border-radius: 50%; background: rgba(196,96,122,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" style="width:24px; height:24px;">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <h3 style="font-family:'Maryellen',cursive; font-size: 28px; color: var(--rose-deep); margin-bottom: 10px;">
+            <span class="en-i">Thank You!</span><span class="ru-i">Спасибо!</span>
+          </h3>
+          <p
+            style="font-family:'Longa Iberica',serif; font-style: italic; font-size: 15px; color: var(--ink-mid); line-height: 1.6;">
+            <span class="en-i">Your RSVP has been sent successfully. We look forward to celebrating with you!</span>
+            <span class="ru-i">Ваш ответ успешно отправлен. Мы с нетерпением ждем возможности отпраздновать с
+              вами!</span>
+          </p>
+        </div>
+
+        <!-- Contact Email Info -->
+        <div class="rsvp-email-info"
+          style="margin-top: 24px; border-top: 1px dashed var(--peach-light); padding-top: 18px; text-align: center; font-size: 12px; font-family:'Jost',sans-serif; color: var(--ink-light); letter-spacing: 0.05em;">
+          <span class="en-i">If you need to change your response, please contact us at:</span>
+          <span class="ru-i">Если вам нужно изменить свой ответ, пожалуйста, свяжитесь с нами по адресу:</span>
+          <div style="margin-top: 6px; font-weight: 400; color: var(--rose-deep); font-size: 14px;">
+            <a href="mailto:[INSERT EMAIL ADDRESS]" id="rsvpContactEmailLink"
+              style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--peach-light);">[INSERT EMAIL
+              ADDRESS]</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1553,7 +1652,7 @@
             <span class="en-i">~20 min taxi ride to MiaDora</span>
             <span class="ru-i">~20 мин на такси до MiaDora</span>
           </div>
-          <img src="hotel2.avif" alt="Radisson Blu Leogrand Hotel" class="hotel-img" />
+          <img src="hotel2.jpg" alt="Radisson Blu Leogrand Hotel" class="hotel-img" />
           <div class="hotel-row">
             <a href="https://www.booking.com/hotel/md/leogrand-convention-center.en-gb.html?aid=356980&amp;label=gog235jc-10CAsojgFCGmxlb2dyYW5kLWNvbnZlbnRpb24tY2VudGVySAlYA2hQiAEBmAEzuAEHyAEM2AED6AEB-AEBiAIBqAIBuALXz8TRBsACAdICJDFhNjA0YTcxLTBmZTQtNDJmMC1hMmU5LTAwZDA2ZjY3NDE3NNgCAeACAQ&amp;sid=c39f70f602020342b3950827b823e163&amp;dest_id=-2276223&amp;dest_type=city&amp;dist=0&amp;group_adults=2&amp;group_children=0&amp;hapos=1&amp;hpos=1&amp;no_rooms=1&amp;req_adults=2&amp;req_children=0&amp;room1=A%2CA&amp;sb_price_type=total&amp;sr_order=popularity&amp;srepoch=1781606365&amp;srpvid=11864aec4f2000dd&amp;type=total&amp;ucfs=1&amp;"
               target="_blank" class="btn btn-sm btn-fill">
@@ -1640,6 +1739,21 @@
   </div><!-- /main -->
 
   <script>
+    // ── RSVP CONFIGURATION ──
+    // Replace '[INSERT EMAIL ADDRESS]' below with your actual email address
+    const RSVP_EMAIL = "ranasaad988@gmail.com";
+
+    // Inject RSVP contact email into the DOM dynamically
+    document.addEventListener("DOMContentLoaded", () => {
+      const emailLinks = document.querySelectorAll("#rsvpContactEmailLink");
+      emailLinks.forEach(link => {
+        if (link) {
+          link.href = `mailto:${RSVP_EMAIL}`;
+          link.textContent = RSVP_EMAIL;
+        }
+      });
+    });
+
     // ── LANGUAGE ──
     function setLang(l) {
       document.documentElement.lang = l;
@@ -1717,6 +1831,61 @@
           document.getElementById('music-icon-pause').style.display = 'block';
         }).catch(() => { });
       }
+    }
+
+    // ── RSVP SUBMISSION ──
+    function handleRsvpSubmit(e) {
+      e.preventDefault();
+
+      const form = document.getElementById('rsvpForm');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const successDiv = document.getElementById('rsvpSuccess');
+
+      const name = document.getElementById('rsvpName').value;
+      const email = document.getElementById('rsvpEmail').value;
+      const message = document.getElementById('rsvpMessage').value;
+
+      // Disable submit button and show loading text
+      submitBtn.disabled = true;
+      const originalHtml = submitBtn.innerHTML;
+      submitBtn.innerHTML = '<span class="en-i">Sending...</span><span class="ru-i">Отправка...</span>';
+
+      const lang = document.documentElement.lang || 'en';
+      submitBtn.querySelectorAll('.en-i').forEach(el => el.style.display = lang === 'ru' ? 'none' : 'inline');
+      submitBtn.querySelectorAll('.ru-i').forEach(el => el.style.display = lang === 'ru' ? 'inline' : 'none');
+
+      const subject = lang === 'ru' ? `Новый RSVP ответ от ${name}` : `New RSVP Response from ${name}`;
+
+      fetch(`https://formsubmit.co/ajax/${RSVP_EMAIL}`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: subject,
+          "Full Name / Полное имя": name,
+          "Email Address / Почта": email,
+          "Message / Сообщение": message
+        })
+      })
+        .then(response => {
+          if (response.ok) {
+            form.style.display = 'none';
+            successDiv.style.display = 'block';
+            successDiv.querySelectorAll('.en-i').forEach(el => el.style.display = lang === 'ru' ? 'none' : 'inline');
+            successDiv.querySelectorAll('.ru-i').forEach(el => el.style.display = lang === 'ru' ? 'inline' : 'none');
+          } else {
+            alert(lang === 'ru' ? 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.' : 'An error occurred. Please try again or contact us directly.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalHtml;
+          }
+        })
+        .catch(() => {
+          alert(lang === 'ru' ? 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.' : 'An error occurred. Please try again or contact us directly.');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHtml;
+        });
     }
 
     // ── SCROLL REVEAL ──
