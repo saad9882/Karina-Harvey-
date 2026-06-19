@@ -400,6 +400,47 @@
       z-index: 1;
     }
 
+    .scroll-down-indicator {
+      position: absolute;
+      bottom: 35px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      z-index: 5;
+      opacity: 0;
+      animation: fadeUp 1s 1.2s ease forwards;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .scroll-down-indicator:hover {
+      opacity: 1 !important;
+    }
+
+    .scroll-chevrons {
+      width: 26px;
+      height: 26px;
+      display: block;
+      animation: chevronBounce 2s infinite ease-in-out;
+    }
+
+    .scroll-chevrons path {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.75);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.3s;
+    }
+
+    .scroll-down-indicator:hover .scroll-chevrons path {
+      stroke: var(--rose-pale);
+    }
+
+    @keyframes chevronBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
     .hero-eyebrow {
       font-family: 'Jost', sans-serif;
       font-weight: 200;
@@ -1195,6 +1236,14 @@
           </div>
         </div>
       </div>
+      <!-- Scroll Down Indicator -->
+      <div class="scroll-down-indicator"
+        onclick="document.getElementById('schedule').scrollIntoView({ behavior: 'smooth' })">
+        <svg class="scroll-chevrons" viewBox="0 0 24 24">
+          <path d="M4 8l8 8 8-8" />
+          <path d="M4 14l8 8 8-8" />
+        </svg>
+      </div>
     </section>
 
     <div class="orn-divider">
@@ -1365,13 +1414,13 @@
         <div class="venue-name">MiaDora Banquet Hall</div>
         <div class="venue-addr">Hristo Botev St 25A, MD-2043, Chișinău, Moldova</div>
         <iframe class="map-embed"
-          src="https://maps.google.com/maps?q=Hristo%20Botev%20St%2025A,%20Chi%C8%99in%C4%83u,%20Moldova&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.7007961803047!2d28.845960399999996!3d46.98721115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97eb697395445%3A0xca03c6bf3fce133b!2sMiadora%20Restaurant!5e0!3m2!1sen!2s!4v1781877001029!5m2!1sen!2s"
           allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
         <img src="sda.jpg" alt="MiaDora Venue" class="venue-img" />
         <div class="btn-row">
-          <a href="https://www.google.com/maps/search/Hristo+Botev+St+25A,+Chisinau,+Moldova" target="_blank"
-            class="btn btn-sm">
+          <a href="https://www.google.com/maps/place/Miadora+Restaurant/@46.9872112,28.8459604,17z/data=!3m1!4b1!4m2!3m1!1s0x40c97eb697395445:0xca03c6bf3fce133b"
+            target="_blank" class="btn btn-sm">
             <span class="en-i">Get Directions</span><span class="ru-i">Маршрут</span>
           </a>
           <a href="https://calendar.app.google/TUe32d6K7xnZsVK79" target="_blank" class="btn btn-sm btn-gold">
@@ -1380,12 +1429,17 @@
         </div>
         <div class="contact-info"
           style="margin-top: 24px; border-top: 1px dashed var(--peach-light); padding-top: 18px; text-align: center; font-size: 13.5px; font-family:'Longa Iberica',serif; font-style: italic; color: var(--ink-mid); line-height: 1.6;">
-          <span class="en-i">If you have any questions on the day of the event, please contact Daria via WhatsApp or Viber:</span>
-          <span class="ru-i">Если у вас возникнут вопросы в день мероприятия, пожалуйста, свяжитесь с Дарьей по WhatsApp или Viber:</span>
-          <div style="margin-top: 8px; font-family:'Jost',sans-serif; font-style: normal; font-weight: 500; font-size: 16px; letter-spacing: 0.05em;">
-            <a href="https://wa.me/447539427506" target="_blank" style="color: var(--rose-deep); text-decoration: none; border-bottom: 1px solid var(--peach-light); display: inline-flex; align-items: center; gap: 6px;">
+          <span class="en-i">If you have any questions on the day of the event, please contact Daria via WhatsApp or
+            Viber:</span>
+          <span class="ru-i">Если у вас возникнут вопросы в день мероприятия, пожалуйста, свяжитесь с Дарьей по WhatsApp
+            или Viber:</span>
+          <div
+            style="margin-top: 8px; font-family:'Jost',sans-serif; font-style: normal; font-weight: 500; font-size: 16px; letter-spacing: 0.05em;">
+            <a href="https://wa.me/447539427506" target="_blank"
+              style="color: var(--rose-deep); text-decoration: none; border-bottom: 1px solid var(--peach-light); display: inline-flex; align-items: center; gap: 6px;">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: middle;">
-                <path d="M12.004 2C6.51 2 2.014 6.5 2.014 12c0 2.14.67 4.12 1.8 5.77L2 22l4.35-1.12c1.61.94 3.49 1.48 5.5 1.48 5.5 0 10-4.5 10-10S17.494 2 12.004 2zm.006 18c-1.89 0-3.66-.54-5.18-1.48l-.37-.23-2.58.67.68-2.52-.26-.41C3.324 14.53 2.82 12.82 2.82 11c0-5.07 4.12-9.18 9.19-9.18 5.07 0 9.18 4.12 9.18 9.18s-4.11 9.18-9.19 9.18z"/>
+                <path
+                  d="M12.004 2C6.51 2 2.014 6.5 2.014 12c0 2.14.67 4.12 1.8 5.77L2 22l4.35-1.12c1.61.94 3.49 1.48 5.5 1.48 5.5 0 10-4.5 10-10S17.494 2 12.004 2zm.006 18c-1.89 0-3.66-.54-5.18-1.48l-.37-.23-2.58.67.68-2.52-.26-.41C3.324 14.53 2.82 12.82 2.82 11c0-5.07 4.12-9.18 9.19-9.18 5.07 0 9.18 4.12 9.18 9.18s-4.11 9.18-9.19 9.18z" />
               </svg>
               +44 7539427506
             </a>
@@ -1523,9 +1577,8 @@
           </h3>
           <p
             style="font-family:'Longa Iberica',serif; font-style: italic; font-size: 15px; color: var(--ink-mid); line-height: 1.6;">
-            <span class="en-i">Your RSVP has been sent successfully. We look forward to celebrating with you!</span>
-            <span class="ru-i">Ваш ответ успешно отправлен. Мы с нетерпением ждем возможности отпраздновать с
-              вами!</span>
+            <span class="en-i">Your RSVP has been sent successfully.</span>
+            <span class="ru-i">Ваш ответ успешно отправлен.</span>
           </p>
         </div>
 
@@ -1648,7 +1701,7 @@
               target="_blank" class="btn btn-sm btn-fill">
               <span class="en-i">View</span><span class="ru-i">Смотреть</span>
             </a>
-            <a href="https://maps.app.goo.gl/2oF4aQ5eUGqvBZTa7" target="_blank" class="btn btn-sm">
+            <a href="https://maps.app.goo.gl/851SSJ9ktnSSxMmv9?g_st=ic" target="_blank" class="btn btn-sm">
               <span class="en-i">Map</span><span class="ru-i">Карта</span>
             </a>
           </div>
