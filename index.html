@@ -1929,37 +1929,60 @@
 
       const subject = lang === 'ru' ? `Новый RSVP ответ от ${name}` : `New RSVP Response from ${name}`;
 
+      // Prepare the submit payload
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: subject,
+        from_name: name,
+        replyto: email,
+        "Full Name / Полное имя": name,
+        "Email Address / Почта": email,
+        "Message / Сообщение": message
+      };
+
+      // Under Web3Forms, ccemail is a premium Pro plan feature.
+      // We only include ccemail if it's explicitly configured and not matching a typical placeholder.
+      if (typeof RSVP_CC !== 'undefined' && RSVP_CC && RSVP_CC !== RSVP_EMAIL) {
+        payload.ccemail = RSVP_CC;
+      }
+
       fetch('https://api.web3forms.com/submit', {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: subject,
-          from_name: name,
-          replyto: email,
-          ccemail: RSVP_CC,
-          "Full Name / Полное имя": name,
-          "Email Address / Почта": email,
-          "Message / Сообщение": message
-        })
+        body: JSON.stringify(payload)
       })
-        .then(response => {
-          if (response.ok) {
+        .then(async (response) => {
+          const json = await response.json().catch(() => ({}));
+          if (response.status === 200) {
             form.style.display = 'none';
             successDiv.style.display = 'block';
             successDiv.querySelectorAll('.en-i').forEach(el => el.style.display = lang === 'ru' ? 'none' : 'inline');
             successDiv.querySelectorAll('.ru-i').forEach(el => el.style.display = lang === 'ru' ? 'inline' : 'none');
           } else {
-            alert(lang === 'ru' ? 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.' : 'An error occurred. Please try again or contact us directly.');
+            console.error("Web3Forms Submission Failure:", response.status, json);
+            const errMsg = json.message || (lang === 'ru' ? 'Произошла ошибка при отправке.' : 'An error occurred.');
+            alert(lang === 'ru' ? `Ошибка: ${errMsg}` : `Error: ${errMsg}`);
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalHtml;
           }
         })
-        .catch(() => {
-          alert(lang === 'ru' ? 'Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами напрямую.' : 'An error occurred. Please try again or contact us directly.');
+        .catch((error) => {
+          console.error("Network Error during submission:", error);
+          
+          let alertMsg = lang === 'ru' 
+            ? 'Произошла ошибка сети. Пожалуйста, попробуйте еще раз.' 
+            : 'A network error occurred. Please try again.';
+            
+          if (window.location.protocol === 'file:') {
+            alertMsg += lang === 'ru'
+              ? '\n\nВнимание: Вы открыли этот файл локально через "file://". Браузеры блокируют AJAX запросы к Web3Forms из-за политик безопасности CORS. Пожалуйста, запустите локальный веб-сервер.'
+              : '\n\nNote: You opened this file locally via "file://". Browsers block AJAX requests to Web3Forms due to CORS security policies. Please use a local web server (e.g. Live Server).';
+          }
+          
+          alert(alertMsg);
           submitBtn.disabled = false;
           submitBtn.innerHTML = originalHtml;
         });
