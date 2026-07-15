@@ -1940,12 +1940,6 @@
         "Message / Сообщение": message
       };
 
-      // Under Web3Forms, ccemail is a premium Pro plan feature.
-      // We only include ccemail if it's explicitly configured and not matching a typical placeholder.
-      if (typeof RSVP_CC !== 'undefined' && RSVP_CC && RSVP_CC !== RSVP_EMAIL) {
-        payload.ccemail = RSVP_CC;
-      }
-
       fetch('https://api.web3forms.com/submit', {
         method: "POST",
         headers: {
